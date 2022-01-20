@@ -1,0 +1,177 @@
+PREFIX model: <http://uni-ko-ld.de/ist/model#>
+PREFIX prod: <http://uni-ko-ld.de/ist/product#>
+PREFIX proc: <http://uni-ko-ld.de/ist/process#>
+PREFIX res: <http://uni-ko-ld.de/ist/resource#>
+PREFIX prop: <http://uni-ko-ld.de/ist/property#>
+PREFIX rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+### Meta Model
+model:Product rdf:type rdfs:Class.
+model:Process rdf:type rdfs:Class.
+model:Resource rdf:type rdfs:Class.
+model:Property rdf:type rdfs:Class.
+
+model:InputModelElement rdf:type rdfs:Class.
+
+model:Product rdfs:subClassOf model:InputModelElement.
+model:Process rdfs:subClassOf model:InputModelElement.
+model:Resource rdfs:subClassOf model:InputModelElement.
+model:Property rdfs:subClassOf model:InputModelElement.
+
+
+
+### Product Repo
+
+prod:RadarSensor001 rdf:type model:Product.
+prod:RadarSensor001 rdfs:label "Radar Sensor".
+#
+prod:FlashedRadarSensor001 rdf:type model:Product.
+prod:FlashedRadarSensor001 rdfs:label "Flashed Radar Sensor".
+#
+prod:PlasticCaseBottom001 rdf:type model:Product.
+prod:PlasticCaseBottom001 rdfs:label "Plastic Case Bottom".
+prod:PlasticCaseBottom001 rdfs:label "Plastic Cover Bottom".
+prod:PlasticCaseBottom001 model:hasVulnerability prop:Temperature001.
+#
+prod:PlasticCaseTop001 rdf:type model:Product.
+prod:PlasticCaseTop001 rdfs:label "Plastic Case Top".
+prod:PlasticCaseTop001 rdfs:label "Plastic Cover Top".
+prod:PlasticCaseTop001 model:hasVulnerability prop:Temperature001.
+#
+prod:AssembledSensor001 rdf:type model:Product.
+prod:AssembledSensor001 rdfs:label "Assembled Radar Sensor".
+#
+prod:SealedSensor001 rdf:type model:Product.
+prod:SealedSensor001 rdfs:label "Sealed Sensor".
+#
+prod:TestedProduct001 rdf:type model:Product.
+prod:TestedProduct001 rdfs:label "Tested Product".
+#
+prod:Flour001 rdf:type model:Product.
+prod:Flour001 rdfs:label "Flour".
+#
+prod:Water001 rdf:type model:Product.
+prod:Water001 rdfs:label "Water".
+#
+prod:Sugar001 rdf:type model:Product.
+prod:Sugar001 rdfs:label "Sugar".
+#
+prod:Dough001 rdf:type model:Product.
+prod:Dough001 rdfs:label "Dough".
+#
+prod:TomatoSauce001 rdf:type model:Product.
+prod:TomatoSauce001 rdfs:label "Tomato Sauce".
+#
+prod:Basil001 rdf:type model:Product.
+prod:Basil001 rdfs:label "Basil".
+#
+prod:Pizza001 rdf:type model:Product.
+prod:Pizza001 rdfs:label "Pizza".
+prod:Pizza001 model:hasVulnerability prop:Temperature001.
+#
+prod:BakedPizza001 rdf:type model:Product.
+prod:BakedPizza001 rdfs:label "Baked Pizza".
+
+### Process Repo
+
+proc:SensorFlashing001 rdf:type model:Process.
+proc:SensorFlashing001 rdfs:label 'Flashing'.
+#
+proc:CaseAssembly001 rdf:type model:Process.
+proc:CaseAssembly001 rdfs:label 'Case Assembly'.
+#
+proc:UltrasonicCaseSealing001 rdf:type model:Process.
+proc:UltrasonicCaseSealing001 rdfs:label 'Ultrasonic Case Sealing'.
+#
+proc:QualityControl001 rdf:type model:Process.
+proc:QualityControl001 rdfs:label 'Quality Control'.
+#
+proc:DoughMaking001 rdf:type model:Process.
+proc:DoughMaking001 rdfs:label 'DoughMaking'.
+#
+proc:Topping001 rdf:type model:Process.
+proc:Topping001 rdfs:label 'Topping'.
+#
+proc:Baking001 rdf:type model:Process.
+proc:Baking001 rdfs:label 'Baking'.
+
+
+### Resource Repo
+
+res:FirmwareFlasher001 rdf:type model:Resource.
+res:FirmwareFlasher001 rdfs:label 'Firmware Flasher'.
+res:FirmwareFlasher001 rdfs:label 'Flasher'.
+res:FirmwareFlasher001 model:changesProperty prop:Firmware001.
+#
+res:Placer001 rdf:type model:Resource.
+res:Placer001 rdfs:label 'Placer'.
+res:Placer001 model:changesProperty prop:Position001.
+#
+res:Screwer001 rdf:type model:Resource.
+res:Screwer001 rdfs:label 'Screwer'.
+res:Screwer001 rdfs:label 'Fastener'.
+res:Screwer001 model:hasRiskSource prop:Force001.
+#
+res:UltrasonicWelder001 rdf:type model:Resource.
+res:UltrasonicWelder001 rdfs:label 'Ultrasonic Welder'.
+res:UltrasonicWelder001 model:hasRiskSource prop:Temperature001.
+#
+res:PressureTester001 rdf:type model:Resource.
+res:PressureTester001 rdfs:label 'Pressure Tester'.
+#
+res:Scale001 rdf:type model:Resource.
+res:Scale001 rdfs:label 'Scale'.
+#
+res:HumanOperator001 rdf:type model:Resource.
+res:HumanOperator001 rdfs:label 'Maintenance Worker'.
+res:HumanOperator001 model:hasVulnerability prop:Force001.
+res:HumanOperator001 model:hasVulnerability prop:Temperature001.
+#
+res:HumanOperator002 rdf:type model:Resource.
+res:HumanOperator002 rdfs:label 'Line Feeder'.
+res:HumanOperator002 model:hasVulnerability prop:Force001.
+res:HumanOperator002 model:hasVulnerability prop:Temperature001.
+#
+res:HumanOperator003 rdf:type model:Resource.
+res:HumanOperator003 rdfs:label 'Baker'.
+res:HumanOperator003 model:hasVulnerability prop:Temperature001.
+#
+res:HandMixer001 rdf:type model:Resource.
+res:HandMixer001 rdfs:label 'HandMixer'.
+#
+res:Oven001 rdf:type model:Resource.
+res:Oven001 rdfs:label 'Oven'.
+res:Oven001 model:hasRiskSource prop:Temperature001.
+
+
+### Property Repo
+
+prop:Firmware001 rdf:type model:Property.
+prop:Firmware001 rdfs:label 'Firmware'.
+prop:Firmware001 rdfs:label 'Firmware Version'.
+#
+prop:Position001 rdf:type model:Property.
+prop:Position001 rdfs:label 'Position'.
+prop:Position001 rdfs:label 'Location'.
+#
+prop:Force001 rdf:type model:Property.
+prop:Force001 rdfs:label 'Force'.
+prop:Force001 rdfs:label 'Strength'.
+#
+prop:Temperature001 rdf:type model:Property.
+prop:Temperature001 rdfs:label 'Temperature'.
+prop:Temperature001 rdfs:label 'Heat'.
+#
+prop:LeakageRate001 rdf:type model:Property.
+prop:LeakageRate001 rdfs:label 'Leakage Rate'.
+#
+prop:Weight001 rdf:type model:Property.
+prop:Weight001 rdfs:label 'Weight'.
+#
+prop:Functionality001 rdf:type model:Property.
+prop:Functionality001 rdfs:label 'Funcctionality'.
+#
+prop:Time001 rdf:type model:Property.
+prop:Time001 rdfs:label 'Time'.
+#
